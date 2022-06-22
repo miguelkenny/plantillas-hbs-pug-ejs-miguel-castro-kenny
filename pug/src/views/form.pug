@@ -1,0 +1,21 @@
+extends ./layout/main.pug
+
+block content
+    div(class="container border rounded mt-4 shadow")
+        div(class="text-center mt-5")
+            p(class="display-4") Cargar Productos
+        form(class="form" action="/productos" method="post")
+            div(class="d-grid gap-2 col-6 mx-auto m-2")
+                input(class="form-control" type="text" placeholder="Nombre" name="nombre")
+
+            div(class="d-grid gap-2 col-6 mx-auto")
+                input(class="form-control" type="number" placeholder="Precio" name="precio")
+
+            div(class="d-grid gap-2 col-6 mx-auto m-2")
+                input(class="form-control" type="text" placeholder="Foto URL" name="url")
+
+            div(class="d-grid gap-2 col-6 mx-auto")
+                button(type="submit" class="btn btn-primary btn-lg mt-4") Agregar Producto
+
+        div(class="d-grid gap-2 col-6 mx-auto")
+            a(href="/productos" type="button" class="btn btn-success btn-lg mt-2 mb-5") Ver Productos

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Productos</title>
+</head>
+<body>
+    <div class="container border shadow mt-4 p-3">
+        <div class="mt-5">
+            <p class="display-5">Lista de Productos</p>
+        </div>
+        <% if (products.length) { %>
+            <table class="table table-striped table-info">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.map(product => { %>
+                        <tr>
+                            <td><%= product.id %></td>
+                            <td><%= product.nombre %></td>
+                            <td>$<%= product.precio %></td>
+                            <td><img src=<%= product.url %> alt=<%= product.nombre %> style="width: 50px" /></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+                <div class="border d-grid gap-2 col-6 mx-auto text-center mt-5">
+                    <p class="display-5" style="color: red;">No se encontraron productos</p>
+                </div>
+            <% } %>
+        <div class="mt-5">
+            <a href="/" type="button" class="btn btn-primary btn-lg mb-4">
+                Volver
+            </a>
+        </div>
+    </div>
+</body>
+</html>

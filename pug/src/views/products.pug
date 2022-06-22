@@ -1,0 +1,30 @@
+extends ./layout/main.pug
+
+block content
+    div(class="container border rounded shadow mt-4 p-3")
+        div(class="mt-5 text-center")
+            p(class="display-5") Lista de Productos
+
+        if products.length > 0
+            table(class="table table-striped table-info")
+                thead
+                    tr
+                        th(scope="col") ID
+                        th(scope="col") Nombre
+                        th(scope="col") Precio
+                        th(scope="col") Imagen
+
+                    each product in products
+                        tr
+                            td= product.id
+                            td= product.nombre
+                            td= `$${product.precio}`
+                            td
+                                img(width="50px")&attributes({src: product.url, alt: product.nombre})
+
+        else
+            div(class="border d-grid gap-2 col-6 mx-auto text-center mt-5")
+                p(class="display-5" style="color: red;") No se encontraron productos
+
+        div(class="d-grid gap-2 col-6 mx-auto mt-4")
+            a(href="/" type="button" class="btn btn-primary btn-lg mb-4") Volver
